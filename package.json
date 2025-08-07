@@ -1,0 +1,57 @@
+{
+  "name": "backend-landing-clinica",
+  "version": "2.0.0",
+  "description": "API backend optimizada para el formulario de contacto de la clínica",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"No linter configured\"",
+    "build": "echo \"No build step required\"",
+    "validate": "node -c src/server.js && echo \"✅ Sintaxis válida\"",
+    "check-env": "node scripts/validate-env.js",
+    "check-env:dev": "node scripts/validate-env.js development",
+    "check-env:prod": "node scripts/validate-env.js production",
+    "health": "curl -s http://localhost:3000/api/health | jq .",
+    "info": "curl -s http://localhost:3000/api/info | jq .",
+    "setup:dev": "cp config.env.template config.env && echo \"✅ Archivo config.env creado para desarrollo\"",
+    "setup:prod": "cp config.production.template config.env && echo \"⚠️  IMPORTANTE: Edita config.env con valores reales para producción\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^2.7.0",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "email",
+    "clinic",
+    "hexagonal-architecture",
+    "optimized"
+  ],
+  "author": "Alexander Suarez",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/backend-landing-clinica.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/backend-landing-clinica/issues"
+  },
+  "homepage": "https://github.com/username/backend-landing-clinica#readme"
+}
