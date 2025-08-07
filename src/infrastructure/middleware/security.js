@@ -45,13 +45,21 @@ const generalRateLimit = createRateLimit(
 // Configuración de CORS mejorada
 const corsOptions = {
   origin: function (origin, callback) {
-    const allowedOrigins = [
-      'http://localhost:3000',
-      'http://localhost:3001',
-      'http://localhost:5173',
-      'https://clinicaencaracas.com',
-      'https://www.clinicaencaracas.com'
-    ];
+    // Obtener orígenes permitidos desde variables de entorno o usar los predeterminados
+    const envOrigins = process.env.ALLOWED_ORIGINS;
+    const allowedOrigins = envOrigins 
+      ? envOrigins.split(',').map(origin => origin.trim())
+      : [
+          'http://localhost:3000',
+          'http://localhost:3001',
+          'http://localhost:5173',
+          'https://landing-clinica-six.vercel.app'
+        ];
+    
+    // En desarrollo, permitir todos los orígenes
+    if (process.env.NODE_ENV === 'development') {
+      return callback(null, true);
+    }
     
     // Permitir requests sin origin (como aplicaciones móviles o Postman)
     if (!origin) return callback(null, true);
@@ -59,6 +67,7 @@ const corsOptions = {
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
+      console.warn(`🚨 CORS bloqueado para origen: ${origin}`);
       callback(new Error('No permitido por CORS'));
     }
   },

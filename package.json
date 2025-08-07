@@ -5,18 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "echo \"No linter configured\"",
-    "build": "echo \"No build step required\"",
-    "validate": "node -c src/server.js && echo \"✅ Sintaxis válida\"",
-    "check-env": "node scripts/validate-env.js",
-    "check-env:dev": "node scripts/validate-env.js development",
-    "check-env:prod": "node scripts/validate-env.js production",
-    "health": "curl -s http://localhost:3000/api/health | jq .",
-    "info": "curl -s http://localhost:3000/api/info | jq .",
-    "setup:dev": "cp config.env.template config.env && echo \"✅ Archivo config.env creado para desarrollo\"",
-    "setup:prod": "cp config.production.template config.env && echo \"⚠️  IMPORTANTE: Edita config.env con valores reales para producción\""
+    "dev": "nodemon src/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

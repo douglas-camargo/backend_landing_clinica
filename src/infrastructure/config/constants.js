@@ -99,8 +99,7 @@ module.exports = {
       'http://localhost:3000',
       'http://localhost:3001',
       'http://localhost:5173',
-      'https://clinicaencaracas.com',
-      'https://www.clinicaencaracas.com'
+      'https://landing-clinica-six.vercel.app'
     ],
     ALLOWED_METHODS: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     ALLOWED_HEADERS: ['Content-Type', 'Authorization', 'X-Requested-With'],
